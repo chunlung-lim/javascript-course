@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+        <title>
+            Booleans
+        </title>
+    </head>
+
+    <body>
+        This is body
+        <script>
+            console.log(3 < 5);
+
+            // == double equal is going to convert two different type of variable into the same type.
+            // When doing the comparison, you will get true. Look at example below.
+            // It will convert value 5 into a string format before the right side '5.00' is a string format.
+            console.log(`typeof (5) = ${typeof 5}`);
+            console.log(`typeof('5') = ${typeof ('5.00')}`);
+            console.log(`5 == '5.00' = ${5 == '5.00'}`);
+
+            // If you want to do comparison for both value is equal or not, use triple equal. ===
+            console.log(`typeof (5) = ${typeof 5}`);
+            console.log(`typeof('5') = ${typeof ('5.00')}`);
+            console.log(`5 === '5.00' = ${5 === '5.00'}`);
+
+            /*
+            
+            Comparison Operators:
+            ---------------------
+            > greater than
+            < less than
+            >= greater than or equal to
+            <= less than or equal to
+            === equal to
+            !== not equal to
+    
+            */
+
+            /*
+    
+            Order of Operation:
+            -------------------
+            1. (...)
+            2. * /
+            3. + -
+            4. Comparison operators
+            5. Logical operation (&& - means AND in JavaScript)
+    
+            */
+
+            // Example of Order of Operation:
+            // It will do the 5 -5 firsrt, then compare 3> 0. So, result is false.
+            console.log(`Compare [3 < 5 - 5] = ${3 < 5 - 5}`);
+
+            const age = 15;
+
+
+            if (false) {
+                console.log('hello');
+            }
+            else {
+                console.log('else');
+            }
+
+            if (age >= 16) {
+                console.log('You can drive');
+            }
+            else if (15 >= 14) {
+                console.log('almost there!');
+            }
+            else {
+                console.log('You cannot drive');
+            }
+
+            // Logical AND operator
+            console.log(`Logical AND operator: true && false = ${true && false}`);
+            console.log(`This is to check AND && operator ${0.2 >= 0 && 0.2 < 1 / 3}`);
+
+            // Logical OR operator
+            console.log(`Logical OR operator: true || false = ${true || false}`);
+
+            // NOT operator
+            console.log(`NOT operator: !true = ${!true}`)
+
+            // Any values are not below are Falsy Values:
+            // false, 0 , '', NaN (Not a Number), undefined null
+            falsyVal = 5
+            if (falsyVal) {
+                console.log('This is TRUSY value.');
+            }
+
+            //Example: If you change to non flasy value, then the if statement will be trusy.
+            const cartQuantity = 0;
+
+            // when cartQuantity is zero, it will be false. Hence will not going into this if statement. 
+            if (cartQuantity) {
+                console.log('*** cart has products ***');
+            }
+
+            // This is going to turn zero suppose to be falsy value into true with NOT operator. 
+            console.log(!0);
+
+            // NaN is a falsy value. We get NaN when we do invalid math.
+            console.log('text/ 5');
+
+            let variable1;
+            console.log(`variable1 = ${variable1}`)
+
+            /*
+            Shortcuts for If-Statements:
+            -----------------------------
+            - Ternary Operator ?:
+            - Guard Operator &&
+            - Default Operator ||
+            */
+
+            console.log('---------------- Ternary Opeator -------------')
+
+            console.log(`If comparison value is 'true' then dispaly the word 'truthy' else display 'falsy' 
+            = ${true ? 'truethy' : 'falsy'}`)
+
+            console.log('--------- Guard Operator and AND Operator (&&) ---------')
+            /*
+            AND Operator &&
+            false && value2
+            - This will be a Short-Circuit Evaluation because it will evaluate the false and then stop.
+            - Doesn't need to run the code on the right.
+            */
+
+            /* We can use the code on the right to block or 'guard' the code on left. 
+             When we use the code like like we called it "Guard Operator &&". 
+            */
+            false && console.log('hello')
+
+            /*
+            When evaluation, of 5 it is truthy so, it passed the evaluation and assigned 'hello' to message.
+            Try to change value 5 to zero, you will realize that it will not assigned 'hello', instead will
+            assigned 0 to message because of faulsy.
+            */
+
+            const message = 0 && 'hello';
+            console.log(message);
+
+            /*
+            Shortcut:
+            ----------
+
+            let message;
+
+            if (condition) {
+                message = 'hello';
+            }
+
+            */
+
+            console.log('----- Default Operator or OR Operator (||) -----')
+
+            /*
+            OR Operator ||
+            true || value2
+            - This will be a Short Circuit because only evaluate the 'true' on the left but not 'value2' on the right.
+
+            */
+
+
+
+        </script>
+    </body>
+
+
+</html>
