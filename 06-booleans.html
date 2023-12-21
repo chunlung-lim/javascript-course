@@ -85,7 +85,7 @@
             console.log(`NOT operator: !true = ${!true}`)
 
             // Any values are not below are Falsy Values:
-            // false, 0 , '', NaN (Not a Number), undefined null
+            // false, 0 , '', NaN (Not a Number), undefined, null
             falsyVal = 5
             if (falsyVal) {
                 console.log('This is TRUSY value.');
@@ -162,7 +162,27 @@
             true || value2
             - This will be a Short Circuit because only evaluate the 'true' on the left but not 'value2' on the right.
 
+            Shortcut:
+            ---------
+
+            let currency;
+
+            if (!condition) {
+                currency = 'USD';
+            }
+
             */
+
+            // Since currency is assigned with legit value which is EUR, then EUR is assigned to currency. 
+            const currency = 'EUR' || 'USD';
+            console.log(`const currency = 'EUR' || 'USD' = ${currency}`)
+
+            /*
+            another_currency is assigned to undefined and it is not legit, so when it evaluates 'USD' is legit, 
+            then 'USD' is assigned to another_currency. 
+            */
+            const another_currency = undefined || 'USD';
+            console.log(`const another_currency = undefined || 'USD' = ${another_currency}`)
 
 
 
