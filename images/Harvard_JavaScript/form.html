@@ -1,0 +1,31 @@
+<html lang="en">
+
+    <head>
+        <title>Hello</title>
+        <script>
+            // Wait for the DOM to finish loading and then execute anonymous function. 
+            document.addEventListener('DOMContentLoaded', function () {
+                // Look for form tag and when submit execute anonymous function. 
+                document.querySelector('form').onsubmit = function () {
+                    /*
+                    querySelector
+                    - document.querySelector('tag')
+                    - document.querySelector('#id')
+                    - document.querySelector('.class')
+
+                    */
+                    const inputName = document.querySelector('#name').value;
+                    alert(`Hello ${inputName}`);
+                };
+            });
+        </script>
+    </head>
+
+    <body>
+        <h1>This is a form</h1>
+        <form>
+            <input autofocus id="name" placeholder="Name" type="text">
+            <input type="submit">
+        </form>
+
+</html>

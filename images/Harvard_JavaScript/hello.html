@@ -1,0 +1,39 @@
+<html lang="en">
+
+    <head>
+        <title>Hello</title>
+        <script>
+            function helloAlert(yourText) {
+                alert(`${yourText}`);
+            }
+
+            function changeH1tag() {
+                /*
+                It is going to give us the ability to go through the HTML page and extract an element from that page.
+                So that we can manupilate the element. In this case, it is going through html page and find the 
+                first 'h1' tag
+                */
+
+                /*
+                == in JavaScript is used for comparing two variables, but it ignores the datatype of variable. 
+                === is used for comparing two variables, but this operator also checks datatype and compares two values.
+                */
+               const heading = document.querySelector('h1');
+                if (heading.innerHTML === 'H1 Tag string'){
+                    heading.innerHTML = 'Goodbye!'
+                }
+                else {
+                    heading.innerHTML = 'H1 Tag string'
+                }
+            }
+
+        </script>
+    </head>
+
+    <body>
+        <h1>H1 Tag string</h1>
+        <button onclick="helloAlert('You win!')">Click Here to show hello alert</button>
+        <button onclick="changeH1tag()">Change H1 tag</button>
+    </body>
+
+</html>
