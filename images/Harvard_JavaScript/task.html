@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Tasks</title>
+        <script>
+            document.addEventListener('DOMContentLoaded', () =>{
+
+                // By default, submit button is disabled
+                document.querySelector('#submit').disabled = true;
+
+                // onkeyup means when there is any key is up in '#task', run function to enable submit button. 
+                document.querySelector('#task').onkeyup = () => {
+                    if (document.querySelector('#task').value.length > 0) {
+                        document.querySelector('#submit').disabled = false;
+                    }
+                    else {
+                        document.querySelector('#submit').disabled = true;
+                    }
+                    
+                }
+
+                document.querySelector('form').onsubmit = () => {
+                    const task = document.querySelector('#task').value;
+                    console.log(task);
+
+                    // create an element 'li' because it will be an item in a list which is under 'ul'
+                    const li = document.createElement('li')
+                    li.innerHTML = task;
+                    
+                    /*
+                    Once you find the id=tasks, append li into the list. This will get annoying because 
+                    each time when I added an item, it will retain the previous data which I don't want.
+                    */
+                    document.querySelector('#tasks').append(li);
+                    
+                    // Clear the value in task variable. So that it does not retain the previous value and will show 'New Task' again. 
+                    document.querySelector('#task').value = '';
+
+                    // Disable submit button again after task is added to an unordered list. 
+                    document.querySelector('#submit').disabled = true;
+
+                    // Stop form from submitting
+                    return false;
+                }
+            })
+        </script>
+    </head>
+    <body>
+        <h1>Tasks</h1>
+        <!-- ul stands for unordered list  -->
+        <ul id="tasks"></ul>
+        <form>
+            <input id="task" placeholder="New Task" type="text">
+            <input id="submit" type="submit">
+        </form>
+    </body>
+</html>

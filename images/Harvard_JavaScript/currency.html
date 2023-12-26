@@ -1,0 +1,66 @@
+<!-- https://www.youtube.com/watch?v=x5trGVMKTdY&t=5738s -->
+<!-- 1:35:48 -->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Currency Exchange</title>
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+
+                document.querySelector('form').onsubmit = () => {
+
+                let myHeaders = new Headers();
+                myHeaders.append("apikey", "wh3PpYSVygr5pa8El6PJc0yULlOipwxm");
+
+                let requestOptions = {
+                method: 'GET',
+                redirect: 'follow',
+                headers: myHeaders
+                };
+                
+                // go ahead and get me latest exchange rate. 
+                fetch("https://api.apilayer.com/exchangerates_data/latest?symbols=GBP%2CJPY%2CEUR&base=USD", requestOptions)
+                // then take the response and covert into json response. 
+                /*
+                .then(response => {
+                    return response.json()})
+                */
+                // The line below is the short version of the above.
+                .then(response => response.json())
+                // Then once you have the data
+                .then(data => {
+                    const currency = document.querySelector('#currency').value.toUpperCase()
+                    // retrieve the JavaScript object at key=rates and key=whatever the short abbreviation of the symbol. 
+                    const rate =data.rates[currency];
+                    // Check the currency is undefined or not
+                    if (rate !== undefined){
+                        // Take that rate and put it in the body. toFixed(3) = round it to 3 decimal places.
+                        document.querySelector('#result').innerHTML = `1 USD is equal to ${rate.toFixed(3)} ${currency}`;
+                    }
+                    else {
+                        document.querySelector('#result').innerHTML = 'Invalid currency.'
+                    }
+
+                    
+                })
+                .catch(error => console.log('error', error));
+
+                    // Reason to return false is because you don't want to click submit and it goes to another page. Just want to run everything inside the same page locally.
+                    return false;
+                }
+
+                
+
+            });
+        </script>
+    </head>
+    <body>
+        <form>
+            <input id="currency" placeholder="Currency" type="text">
+            <input type="submit" value="Convert">
+        </form>
+        <div id="result">
+
+        </div>
+    </body>
+</html>

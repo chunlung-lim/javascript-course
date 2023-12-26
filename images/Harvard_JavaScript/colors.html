@@ -4,11 +4,58 @@ time: 48:17 -->
 <html>
     <head>
         <title>Color</title>
+        <script>
+            /*
+                Add an even listener to the document when the DOMContentLoaded is fully loaded, run anonymous function
+            */
+            document.addEventListener('DOMContentLoaded', function(){
+                /*
+                -------- The following way works but not elegant --------------------
+                // Get me an ID is red, when you clicked on it go ahead and run the function
+                document.querySelector('#red').onclick = function(){
+                    // Get me an ID is hello, modify the anything in the style color 
+                    document.querySelector('#hello').style.color = 'red';
+                }
+
+                document.querySelector('#blue').onclick = function(){
+                    // Get me an ID is hello, modify the anything in the style color 
+                    document.querySelector('#hello').style.color = 'blue';
+                }
+
+                document.querySelector('#green').onclick = function(){
+                    // Get me an ID is hello, modify the anything in the style color 
+                    document.querySelector('#hello').style.color = 'green';
+                }
+                */
+               /*
+                Query all the button, for each of the button that came back,
+                I would like to perform each function on that. A function that takes an input which is 'button',
+                it adds an onclick handler.
+                Run the following in console
+                let button_dataset = document.querySelectorAll('button')
+                let each_btn_data = button_dataset[0]
+                each_btn_data.dataset.color <- This will return red which is the value from data-color
+
+                
+                document.querySelectorAll('button').forEach(function(button) {
+                This can be rewrite to:
+                document.querySelectorAll('button').forEach(button => {
+                    * Whatever is on the left is the input of the function, whatever right is the function is going to run.
+                */
+                document.querySelectorAll('button').forEach(function(button) {
+                    // When a button is clicked on, then go ahead and run the following function
+                    button.onclick = function() {
+                        // Go to the HTML document, find an ID with hello and change the style and color to the data-color value. 
+                        document.querySelector('#hello').style.color = button.dataset.color;
+                    }
+                });
+            });
+        </script>
     </head>
     <body>
-        <h1 id="hello">Hello!</h1>
-        <button>Red</button>
-        <button>Blue</button>
-        <button>Green </button>
+        <h1 id="hello" >Hello!</h1>
+        <button id="red" data-color="red">Red</button>
+        <button id="blue" data-color="blue">Blue</button>
+        <button id="green" data-color="green">Green </button>
     </body>
 </html>
