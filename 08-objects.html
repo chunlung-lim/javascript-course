@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Objects
+        </title>
+    </head>
+
+    <body>
+        <script>
+            /*
+            // this is an object where you use = {}
+            const product = {
+                name: 'socks',
+                price: 1090
+            }
+            console.log(product);
+            console.log(product.name);
+            console.log(product['price']);
+
+            product.name = 'cotton socks';
+            console.log(product);
+
+            // add a property to the object 
+            product.newProperty = true;
+            console.log(product);
+
+            delete product.newProperty;
+            console.log(product)
+            */
+            /*
+            const product2 = {
+                name: 'shirt',
+                ['delivery-time']: '1 day',
+                // this is called nested object which is an object inside an object. 
+                rating:{
+                    starts: 4.5,
+                    count: 87
+                },
+                // this is a function inside an object. 
+                fun: function function1(){
+                    console.log('function inside object');
+                }
+            }
+            console.log(product2);
+            console.log(product2['delivery-time']);
+            console.log(product2.rating.count);
+            // run a function inside an object 
+            product2.fun();
+            */
+            /*
+            convert a JavaScript object into JSON format.
+            Since JSON does not support function inside an object, it will ignore it during conversion.
+            */
+           /*
+           stringify is a function inside a JSON object. It returns string. The function will convert JavaScript object into JSON format.
+           Such as turn single quote into double quotes, drop function inside an object.
+           */
+            /*
+           console.log(JSON.stringify(product2));
+           console.log(`typeof(JSON.stringify(product2))) = ${typeof(JSON.stringify(product2))}`);
+            
+           const jsonString = JSON.stringify(product2)
+            */
+           /* Convert JSON to JavaScript Object: JSON.parse()
+           */
+          
+        //    console.log(JSON.parse(jsonString));
+
+          /* localStorage: Value is saved more permanently. 
+          When a page is refreshed, values in variables are set back to default but not localStorage.
+          Notes: localStorage only save string.
+          Look at example in 08-rock-paper-scissors.html
+          */
+        //   localStorage.setItem(name, value)
+        /*
+         localStorage.setItem('message', 'hello');
+         console.log(`localStorage.getItem('message') = ${localStorage.getItem('message')}`)
+        */
+
+       console.log('hello'.length);
+       console.log('hello'.toUpperCase());
+
+        </script>
+    </body>
+
+</html>
